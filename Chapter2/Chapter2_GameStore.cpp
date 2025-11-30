@@ -14,20 +14,20 @@ int main()
     std::string CoD7Title = "Call of Duty 7";
     std::string KerbalSpaceProgramTitle = "Kerbal Space Program";
 
-    std::string firstName = "Greg";
-    std::string lastName = "Satterlee";
-    std::string streetName = "555 Any Rd.";
-    std::string city = "Oklahoma City";
-    std::string state = "OK";
-    std::string zipCode = "73170";
+    std::string firstName = "";
+    std::string lastName = "";
+    std::string streetName = "";
+    std::string city = "";
+    std::string state = "";
+    std::string zipCode = "";
 
     double Battlefield6Price = 69.99;
     double CallofDuty7Price = 69.99;
     double KerbalSpaceProgramPrice = 29.99;
 
-    int Battlefield6Quantity = 1;
-    int CallofDutyQuantity = 2;
-    int KerbalSpaceProgramQuantity = 1;
+    int Battlefield6Quantity = 0;
+    int CallofDutyQuantity = 0;
+    int KerbalSpaceProgramQuantity = 0;
 
     double Battlefield6Amount = Battlefield6Price * Battlefield6Quantity;
     double CallofDuty7Amount = CallofDuty7Price * CallofDutyQuantity;
