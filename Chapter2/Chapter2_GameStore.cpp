@@ -26,7 +26,7 @@ int main()
     double KerbalSpaceProgramPrice = 29.99;
 
     int Battlefield6Quantity = 1;
-    int CallofDutyQuantity = 1;
+    int CallofDutyQuantity = 2;
     int KerbalSpaceProgramQuantity = 1;
 
     double Battlefield6Amount = Battlefield6Price * Battlefield6Quantity;
