@@ -13,9 +13,9 @@ int main()
 
     const double SALES_TAX = 0.0875;
 
-    string GameOneTitle = "Battlefield 6";
-    string GameTwoTitle = "Call of Duty 7";
-    string GameThreeTitle = "Kerbal Space Program";
+    string Game1Title = "Battlefield 6";
+    string Game2Title = "Call of Duty 7";
+    string Game3Title = "Kerbal Space Program";
 
     string firstName = "";
     string lastName = "";
@@ -31,9 +31,6 @@ int main()
     int Game1Quantity = 0;
     int Game2Quantity = 0;
     int Game3Quantity = 0;
-
-
-
 
     //get the customer information
     cout << "Enter the Customer First Name: ";
@@ -51,13 +48,13 @@ int main()
     cin >> zipCode;
 
     //get the sale information
-    cout << "How many copies of " << GameOneTitle << " would you like? ";
+    cout << "How many copies of " << Game1Title << " would you like? ";
     cin >> Game1Quantity;
 
-    cout << "How many copies of " << GameTwoTitle << " would you like? ";
+    cout << "How many copies of " << Game2Title << " would you like? ";
     cin >> Game2Quantity;
 
-    cout << "How many copies of " << GameThreeTitle << " would you like? ";
+    cout << "How many copies of " << Game3Title << " would you like? ";
     cin >> Game3Quantity;
 
     double Game1Amount = Game1Price * Game1Quantity;
@@ -82,9 +79,9 @@ int main()
     cout << "Quantity\t" << "Description\t" << "\tUnit Price\t\t" << "Total" << endl;
     cout << "--------\t" << "-----------\t" << "\t----------\t\t" << "-----" << endl << endl;
 
-    cout << Game1Quantity << "\t\t" << GameOneTitle << "\t\t" << Game1Price << "\t\t\t" << Game1Amount << endl; 
-    cout << Game2Quantity << "\t\t" << GameTwoTitle << "\t\t" << Game2Price << "\t\t\t" << Game2Amount << endl;
-    cout << Game3Quantity << "\t\t" << GameThreeTitle << "\t" << Game3Price << "\t\t\t" << Game3Amount << endl;
+    cout << Game1Quantity << "\t\t" << Game1Title << "\t\t" << Game1Price << "\t\t\t" << Game1Amount << endl; 
+    cout << Game2Quantity << "\t\t" << Game2Title << "\t\t" << Game2Price << "\t\t\t" << Game2Amount << endl;
+    cout << Game3Quantity << "\t\t" << Game3Title << "\t" << Game3Price << "\t\t\t" << Game3Amount << endl;
 
     cout << endl;
 
