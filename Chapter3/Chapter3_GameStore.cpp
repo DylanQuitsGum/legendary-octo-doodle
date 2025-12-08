@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -37,6 +38,21 @@ int main()
     double subTotal = Game1Amount + Game2Amount + Game3Amount;
     double taxTotal = subTotal * SALES_TAX;
     double grandTotal = taxTotal + subTotal;
+
+
+    cout << "Enter the Customer First Name: ";
+    cin >> firstName;
+    cout << "Enter the Customer Last Name: ";
+    cin >> lastName;
+    cin.ignore(256,'\n');
+    cout << "Enter the Customer Street Address: ";
+    getline(cin, streetName);
+    cout << "Enter the Customer City: ";
+    getline(cin, city);
+    cout << "Enter the Customer State: ";
+    getline(cin, state);
+    cout << "Enter the Customer Zip Code: ";
+    cin >> zipCode;
 
     cout << endl << "Reciept" << endl << endl;
 
