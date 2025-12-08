@@ -1,28 +1,31 @@
 #include <iostream>
-#include <iomanip>
+#include <string>
+#include <iomanip> // NEW: Required for setprecision, fixed, and setw
 
 using namespace std;
 
 int main()
 {
+    // --- CONSTANTS ---
     const string STORE_NAME = "Games and Stuff";
     const string ADDRESS_STREET = "123 I Can Dr.";
     const string ADDRESS_CITY = "Oklahoma City";
     const string ADDRESS_STATE = "OK";
     const string ADDRESS_ZIPCODE = "73170";
 
-    const double SALES_TAX = 0.0875;
+    const double SALES_TAX_RATE = 0.0875;
 
-    string Game1Title = "Battlefield 6";
-    string Game2Title = "Call of Duty 7";
-    string Game3Title = "Kerbal Space Program";
+    // --- VARIABLES ---
+    string GameOneTitle = "Battlefield 6";
+    string GameTwoTitle = "Call of Duty 7";
+    string GameThreeTitle = "Kerbal Space Program";
 
-    string firstName = "";
-    string lastName = "";
-    string streetName = "";
-    string city = "";
-    string state = "";
-    string zipCode = "";
+    string firstName;  // Removed hardcoded values
+    string lastName;
+    string streetName;
+    string city;
+    string state;
+    string zipCode;
 
     double Game1Price = 69.99;
     double Game2Price = 69.99;
@@ -32,63 +35,102 @@ int main()
     int Game2Quantity = 0;
     int Game3Quantity = 0;
 
-    //get the customer information
-    cout << "Enter the Customer First Name: ";
+    // --- INPUT SECTION (Chapter 3.1 - 3.8) ---
+    cout << "--- CUSTOMER DATA ENTRY ---" << endl;
+    
+    cout << "Enter Customer First Name: ";
     cin >> firstName;
-    cout << "Enter the Customer Last Name: ";
+    
+    cout << "Enter Customer Last Name: ";
     cin >> lastName;
-    cin.ignore(256,'\n');
-    cout << "Enter the Customer Street Address: ";
-    getline(cin, streetName);
-    cout << "Enter the Customer City: ";
+
+    // TEACHING MOMENT: cin leaves a newline in the buffer. 
+    // We must 'ignore' it before using getline (Gaddis 3.8).
+    cin.ignore(); 
+
+    cout << "Enter Street Address: ";
+    getline(cin, streetName); // Allows spaces in address
+
+    cout << "Enter City: ";
     getline(cin, city);
-    cout << "Enter the Customer State: ";
-    getline(cin, state);
-    cout << "Enter the Customer Zip Code: ";
+
+    cout << "Enter State: ";
+    cin >> state;
+
+    cout << "Enter Zip Code: ";
     cin >> zipCode;
 
-    //get the sale information
-    cout << "How many copies of " << Game1Title << " would you like? ";
+    cout << endl << "--- ORDER ENTRY ---" << endl;
+    cout << "How many copies of " << GameOneTitle << "? ";
     cin >> Game1Quantity;
 
-    cout << "How many copies of " << Game2Title << " would you like? ";
+    cout << "How many copies of " << GameTwoTitle << "? ";
     cin >> Game2Quantity;
 
-    cout << "How many copies of " << Game3Title << " would you like? ";
+    cout << "How many copies of " << GameThreeTitle << "? ";
     cin >> Game3Quantity;
 
+    // --- PROCESSING SECTION (Calculations) ---
+    // Moved strictly AFTER input (Sequential Execution)
     double Game1Amount = Game1Price * Game1Quantity;
     double Game2Amount = Game2Price * Game2Quantity;
     double Game3Amount = Game3Price * Game3Quantity;
+    
     double subTotal = Game1Amount + Game2Amount + Game3Amount;
-    double taxTotal = subTotal * SALES_TAX;
-    double grandTotal = taxTotal + subTotal;   
+    double taxTotal = subTotal * SALES_TAX_RATE;
+    double grandTotal = subTotal + taxTotal;
 
-    cout << endl << "Reciept" << endl << endl;
+    // --- OUTPUT SECTION (Formatting) ---
+    cout << endl << "RECEIPT" << endl;
+    cout << "------------------------------------------------" << endl;
 
     cout << STORE_NAME << endl;
     cout << ADDRESS_STREET << endl;
     cout << ADDRESS_CITY << ", " << ADDRESS_ZIPCODE << endl << endl;
 
-    cout << "Bill To" << endl;
+    cout << "Bill To:" << endl;
     cout << firstName << " " << lastName << endl;
     cout << streetName << endl;
     cout << city << ", " << state << " " << zipCode << endl << endl;
 
-    cout << "--------\t" << "-----------\t" << "\t----------\t\t" << "-----" << endl;
-    cout << "Quantity\t" << "Description\t" << "\tUnit Price\t\t" << "Total" << endl;
-    cout << "--------\t" << "-----------\t" << "\t----------\t\t" << "-----" << endl << endl;
+    // Formatting Setup (Gaddis 3.7)
+    cout << fixed << showpoint << setprecision(2); 
 
-    cout << Game1Quantity << "\t\t" << Game1Title << "\t\t" << Game1Price << "\t\t\t" << Game1Amount << endl; 
-    cout << Game2Quantity << "\t\t" << Game2Title << "\t\t" << Game2Price << "\t\t\t" << Game2Amount << endl;
-    cout << Game3Quantity << "\t\t" << Game3Title << "\t" << Game3Price << "\t\t\t" << Game3Amount << endl;
+    // Table Header
+    cout << left << setw(10) << "QTY" 
+         << setw(30) << "DESCRIPTION" 
+         << setw(12) << "UNIT PRICE" 
+         << setw(12) << "TOTAL" << endl;
+    
+    cout << "----------------------------------------------------------------" << endl;
+
+    // Row 1
+    cout << setw(10) << Game1Quantity 
+         << setw(30) << GameOneTitle 
+         << "$" << setw(11) << Game1Price 
+         << "$" << Game1Amount << endl;
+
+    // Row 2
+    cout << setw(10) << Game2Quantity 
+         << setw(30) << GameTwoTitle 
+         << "$" << setw(11) << Game2Price 
+         << "$" << Game2Amount << endl;
+
+    // Row 3
+    cout << setw(10) << Game3Quantity 
+         << setw(30) << GameThreeTitle 
+         << "$" << setw(11) << Game3Price 
+         << "$" << Game3Amount << endl;
 
     cout << endl;
 
-    cout << "\t\t\t\t\tSubtotal\t\t" << subTotal << endl;
-    cout << "\t\t\t\t\tSales Tax " << SALES_TAX * 100 << "%\t\t" << taxTotal << endl;
-    cout << "\t\t\t\t\tTotal\t\t\t" << grandTotal << endl << endl;
-    cout << "Thank you and come again!" << endl << endl;
+    // Totals Area (Using right alignment for numbers if desired, keeping left for simplicity)
+    cout << right; // Switch to right alignment for totals
+    cout << setw(53) << "Subtotal: $" << setw(8) << subTotal << endl;
+    cout << setw(53) << "Tax: $" << setw(8) << taxTotal << endl;
+    cout << setw(53) << "Total: $" << setw(8) << grandTotal << endl;
+
+    cout << endl << "Thank you and come again!" << endl << endl;
 
     return 0;
 }
