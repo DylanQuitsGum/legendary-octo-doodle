@@ -10,9 +10,9 @@ int main()
 
     const double SALES_TAX = 0.0875;
 
-    std::string Battlefield6Title = "Battlefield 6";
-    std::string CoD7Title = "Call of Duty 7";
-    std::string KerbalSpaceProgramTitle = "Kerbal Space Program";
+    std::string GameOneTitle = "Battlefield 6";
+    std::string GameTwoTitle = "Call of Duty 7";
+    std::string GameThreeTitle = "Kerbal Space Program";
 
     std::string firstName = "";
     std::string lastName = "";
@@ -21,18 +21,18 @@ int main()
     std::string state = "";
     std::string zipCode = "";
 
-    double Battlefield6Price = 69.99;
-    double CallofDuty7Price = 69.99;
-    double KerbalSpaceProgramPrice = 29.99;
+    double Game1Price = 69.99;
+    double Game2Price = 69.99;
+    double Game3Price = 29.99;
 
-    int Battlefield6Quantity = 0;
-    int CallofDutyQuantity = 0;
-    int KerbalSpaceProgramQuantity = 0;
+    int Game1Quantity = 0;
+    int Game2Quantity = 0;
+    int Game3Quantity = 0;
 
-    double Battlefield6Amount = Battlefield6Price * Battlefield6Quantity;
-    double CallofDuty7Amount = CallofDuty7Price * CallofDutyQuantity;
-    double KerbalSpaceProgramAmount = KerbalSpaceProgramPrice * KerbalSpaceProgramQuantity;
-    double subTotal = Battlefield6Amount + CallofDuty7Amount + KerbalSpaceProgramAmount;
+    double Game1Amount = Game1Price * Game1Quantity;
+    double Game2Amount = Game2Price * Game2Quantity;
+    double Game3Amount = Game3Price * Game3Quantity;
+    double subTotal = Game1Amount + Game2Amount + Game3Amount;
     double taxTotal = subTotal * SALES_TAX;
     double grandTotal = taxTotal + subTotal;
 
@@ -51,9 +51,9 @@ int main()
     std::cout << "Quantity\t" << "Description\t" << "\tUnit Price\t\t" << "Total" << std::endl;
     std::cout << "--------\t" << "-----------\t" << "\t----------\t\t" << "-----" << std::endl << std::endl;
 
-    std::cout << Battlefield6Quantity << "\t\t" << Battlefield6Title << "\t\t" << Battlefield6Price << "\t\t\t" << Battlefield6Amount << std::endl; 
-    std::cout << CallofDutyQuantity << "\t\t" << CoD7Title << "\t\t" << CallofDuty7Price << "\t\t\t" << CallofDuty7Amount << std::endl;
-    std::cout << KerbalSpaceProgramQuantity << "\t\t" << KerbalSpaceProgramTitle << "\t" << KerbalSpaceProgramPrice << "\t\t\t" << KerbalSpaceProgramAmount << std::endl;
+    std::cout << Game1Quantity << "\t\t" << GameOneTitle << "\t\t" << Game1Price << "\t\t\t" << Game1Amount << std::endl; 
+    std::cout << Game2Quantity << "\t\t" << GameTwoTitle << "\t\t" << Game2Price << "\t\t\t" << Game2Amount << std::endl;
+    std::cout << Game3Quantity << "\t\t" << GameThreeTitle << "\t" << Game3Price << "\t\t\t" << Game3Amount << std::endl;
 
     std::cout << std::endl;
 
