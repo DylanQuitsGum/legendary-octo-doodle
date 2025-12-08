@@ -32,14 +32,10 @@ int main()
     int Game2Quantity = 0;
     int Game3Quantity = 0;
 
-    double Game1Amount = Game1Price * Game1Quantity;
-    double Game2Amount = Game2Price * Game2Quantity;
-    double Game3Amount = Game3Price * Game3Quantity;
-    double subTotal = Game1Amount + Game2Amount + Game3Amount;
-    double taxTotal = subTotal * SALES_TAX;
-    double grandTotal = taxTotal + subTotal;
 
 
+
+    //get the customer information
     cout << "Enter the Customer First Name: ";
     cin >> firstName;
     cout << "Enter the Customer Last Name: ";
@@ -53,6 +49,23 @@ int main()
     getline(cin, state);
     cout << "Enter the Customer Zip Code: ";
     cin >> zipCode;
+
+    //get the sale information
+    cout << "How many copies of " << GameOneTitle << " would you like? ";
+    cin >> Game1Quantity;
+
+    cout << "How many copies of " << GameTwoTitle << " would you like? ";
+    cin >> Game2Quantity;
+
+    cout << "How many copies of " << GameThreeTitle << " would you like? ";
+    cin >> Game3Quantity;
+
+    double Game1Amount = Game1Price * Game1Quantity;
+    double Game2Amount = Game2Price * Game2Quantity;
+    double Game3Amount = Game3Price * Game3Quantity;
+    double subTotal = Game1Amount + Game2Amount + Game3Amount;
+    double taxTotal = subTotal * SALES_TAX;
+    double grandTotal = taxTotal + subTotal;   
 
     cout << endl << "Reciept" << endl << endl;
 
